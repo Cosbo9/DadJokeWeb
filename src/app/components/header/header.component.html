@@ -1,0 +1,12 @@
+<mat-toolbar>
+    <div class="title">
+        <h1 routerLink="/">Punsters</h1>
+    </div>
+    <div class="btnGroup" *ngIf="!loggedIn">
+        <mat-icon (click)="loggedIn = !loggedIn" matTooltip="Log In">login</mat-icon>
+    </div>
+    <div class="btnGroup" *ngIf="loggedIn">
+        <mat-icon matTooltip="Profile">account_circle</mat-icon>
+        <mat-icon (click)="loggedIn = !loggedIn" matTooltip="Log Out">logout</mat-icon>
+    </div>
+</mat-toolbar>
