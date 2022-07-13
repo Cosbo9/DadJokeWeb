@@ -3,7 +3,7 @@
         <h1 routerLink="/">Punsters</h1>
     </div>
     <div class="btnGroup" *ngIf="!loggedIn">
-        <mat-icon (click)="loggedIn = !loggedIn" matTooltip="Log In">login</mat-icon>
+        <mat-icon (click)="openDialog()" matTooltip="Log In">login</mat-icon>
     </div>
     <div class="btnGroup" *ngIf="loggedIn">
         <mat-icon matTooltip="Profile">account_circle</mat-icon>
