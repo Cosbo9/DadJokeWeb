@@ -1,1 +1,39 @@
-<p>auth works!</p>
+<div *ngIf="!signedIn" class="authForm">
+    <h1>Sign In</h1>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="Ex: example@email.com" #email="ngModel" type="email" ngModel name="email" required>
+            <mat-error *ngIf="email.errors?.['required']">Email is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput #password="ngModel" ngModel name="password" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <!-- <mat-error *ngIf="password.errors?.['minlength']">Password must be at least 8 characters</mat-error> -->
+        </mat-form-field>
+        <button mat-raised-button>Submit</button>
+        <button type="button" mat-button (click)="signedIn = !signedIn">Not already a member? Sign Up!</button>
+    </form>
+</div>
+<div *ngIf="signedIn" class="authForm">
+    <h1>Sign Up</h1>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="Ex: example@email.com" #email="ngModel" type="email" ngModel name="email" required>
+            <mat-error *ngIf="email.errors?.['required']">Email is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput #password="ngModel" ngModel name="password" required minlength="8" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+            <mat-error *ngIf="password.errors?.['minlength']">Password must be at least 8 characters</mat-error>
+        </mat-form-field>
+        <button mat-raised-button>Submit</button>
+    </form>
+</div>
