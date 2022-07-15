@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialsModule } from './materials/materials-module/materials.module';
 import { AuthComponent } from './components/auth/auth.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AuthComponent } from './components/auth/auth.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialsModule
+    MaterialsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

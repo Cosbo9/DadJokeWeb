@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div class="homeContainer">
+    <mat-card>
+        <mat-card-title>
+            Punsters Joke Generator
+        </mat-card-title>
+        <mat-card-content>
+            <h1>{{ displayedJoke.joke }}</h1>
+            <div class="btnGroup">
+                <button mat-raised-button color="primary" (click)="onGetJoke()">Get Joke!</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
